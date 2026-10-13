@@ -1,0 +1,80 @@
+{
+  "name": "dsh-plan-build-mode",
+  "version": "1.1.0",
+  "description": "Plan / Build mode switcher for DeepSeek Harness: a composer dropdown beside the permission control, plus a default-mode setting for new sessions.",
+  "license": "MIT",
+  "author": "yzhclcl",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yzhclcl/dsh-plan-build-mode.git"
+  },
+  "homepage": "https://github.com/yzhclcl/dsh-plan-build-mode#readme",
+  "bugs": {
+    "url": "https://github.com/yzhclcl/dsh-plan-build-mode/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "deepseek-ai",
+    "plugin",
+    "plan-mode",
+    "build-mode",
+    "mode-switch",
+    "opencode",
+    "composer",
+    "settings",
+    "模式切换",
+    "计划模式",
+    "DeepSeek插件"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.0-0 <0.3.0-0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/schemastery": "^3.18.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  }
+}
